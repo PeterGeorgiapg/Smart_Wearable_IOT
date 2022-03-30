@@ -1,10 +1,10 @@
 # Smart_Wearable_Tech_IOT
 
 ### 1.Table of Contents
-- [Objectives](#Objectives)
-- [Overview](#Overview)
-- [Specification](#Specification)
-- [Reference](#Reference)
+- [Objectives](#2.Objectives)
+- [Overview](#3.Overview)
+- [Specification](#4.Specification)
+- [Reference](#5.Reference)
 
 ---
 
