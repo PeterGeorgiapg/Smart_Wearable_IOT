@@ -1,6 +1,6 @@
 # Smart_Wearable_Tech_IOT
 
-### 1.Table of Contents
+### Table of Contents
 - [Objectives](#Objectives)
 - [Overview](#Project-Overview)
 - [Specification](#Specification)
