@@ -32,6 +32,10 @@ def stft(x,sr):
     plt.show()
 
 
+def MFCC(x,sr):
+    pass
+
+
 #use glob to read audio file
 if __name__ == "__main__":
 
