@@ -36,7 +36,7 @@ def stft(x,sr):
 if __name__ == "__main__":
 
     os.system('export DISPLAY=:0.0')
-    x, sr = librosa.load('Borrodale_Rd.wav')    #   x is audio array and sr is sample rate
+    x, sr = librosa.load('audio_name.wav')    #   x is audio array and sr is sample rate
     print(x.shape)
     print(sr)
 
