@@ -15,24 +15,27 @@ sns.set_theme(style = "white",palette = None)
 color_pal = plt.rcParams["axes.prop_cycle"].by_key()["color"]
 color_cycle = cycle(plt.rcParams["axes.prop_cycle"].by_key()["color"])
 
-def base_plot(x,sr):
+def base_plot(x,sr,title):
     plt.figure(figsize=(14, 5))
     librosa.display.waveshow(x, sr=sr)
+    plt.title(title)
+    return plt
+    # plt.show()
 
-    # plt.title("Example 1, time vs audio plot")
-    # librosa.display.waveshow(x,sr,x_axis = "time",y_xais = "amplitude")
-    plt.show()
-
-def stft(x,sr):
+def stft(x,sr,title):
     X = librosa.stft(x)
     Xdb = librosa.amplitude_to_db(abs(X))
     plt.figure(figsize=(14, 5))
     librosa.display.specshow(Xdb, sr=sr, x_axis='time', y_axis='hz')
-    plt.title("Short Term Forier Transform Graph")
-    plt.show()
+    plt.title(title)
+    return plt
+    # plt.show()
 
 
 def MFCC(x,sr):
+    pass
+
+def FFT(x,sr):
     pass
 
 
@@ -40,13 +43,18 @@ def MFCC(x,sr):
 if __name__ == "__main__":
 
     os.system('export DISPLAY=:0.0')
-    x, sr = librosa.load('audio_name.wav')    #   x is audio array and sr is sample rate
-    print(x.shape)
-    print(sr)
+    x, sr = librosa.load('test_data/Lab1_purenoise.wav')    #   x is audio array and sr is sample rate
+    # print(x.shape)
+    # print(sr)
+    sr = 2000
+    base=base_plot(x,sr,"Noise base plot")    # Step 1
+    stft_plot = stft(x,sr,"Noise STFT plot")          # Step 2
+    base.show()
+    stft_plot.show()
+
+    
 
 
-    base_plot(x,sr)    # Step 1
-    stft(x,sr)          # Step 2
 
 
 
