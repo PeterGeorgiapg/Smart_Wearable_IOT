@@ -32,6 +32,7 @@ def stft(x,sr,title):
     # plt.show()
 
 
+
 def MFCC(x,sr):
     pass
 
@@ -43,10 +44,8 @@ def FFT(x,sr):
 if __name__ == "__main__":
 
     os.system('export DISPLAY=:0.0')
-    x, sr = librosa.load('test_data/Lab1_purenoise.wav')    #   x is audio array and sr is sample rate
-    # print(x.shape)
-    # print(sr)
-    sr = 2000
+    x, sr = librosa.load('Music4.wav')    #   x is audio array and sr is sample rate
+    # sr = 1024
     base=base_plot(x,sr,"Noise base plot")    # Step 1
     stft_plot = stft(x,sr,"Noise STFT plot")          # Step 2
     base.show()
