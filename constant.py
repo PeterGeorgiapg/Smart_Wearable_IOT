@@ -1,0 +1,2 @@
+HIGH_CUT = 2000
+LOW_CUT = 40

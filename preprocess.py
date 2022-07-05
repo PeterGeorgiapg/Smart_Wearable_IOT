@@ -10,6 +10,8 @@ import librosa
 import librosa.display
 import IPython.display as ipd
 from itertools import cycle
+import noise
+import PySound
 
 sns.set_theme(style = "white",palette = None)
 color_pal = plt.rcParams["axes.prop_cycle"].by_key()["color"]
@@ -42,9 +44,9 @@ def FFT(x,sr):
 
 #use glob to read audio file
 if __name__ == "__main__":
-
+    PySound.write_to_wav("test\Music4.wav")
     os.system('export DISPLAY=:0.0')
-    x, sr = librosa.load('Music4.wav')    #   x is audio array and sr is sample rate
+    x, sr = librosa.load('test\Music4.wav')    #   x is audio array and sr is sample rate
     # sr = 1024
     base=base_plot(x,sr,"Noise base plot")    # Step 1
     stft_plot = stft(x,sr,"Noise STFT plot")          # Step 2
