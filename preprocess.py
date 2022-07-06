@@ -1,6 +1,8 @@
+from matplotlib.pyplot import magnitude_spectrum
 import pandas as pd
 import numpy as np
 import matplotlib.pylab as plt
+from scipy.fft import fft
 import seaborn as sns
 from glob import glob
 
@@ -30,6 +32,7 @@ def stft(x,sr,title):
     plt.figure(figsize=(14, 5))
     librosa.display.specshow(Xdb, sr=sr, x_axis='time', y_axis='hz')
     plt.title(title)
+    plt.ylim([0,2000])
     return plt
     # plt.show()
 
@@ -39,7 +42,15 @@ def MFCC(x,sr):
     pass
 
 def FFT(x,sr):
-    pass
+    magnitude = np.abs(np.fft.fft(x))
+    freqeuncy = np.linspace(0,sr,len(magnitude))
+    plt.figure(figsize=(14, 5))
+    plt.plot(freqeuncy,magnitude)
+    plt.xlabel("Frequency")
+    plt.ylabel("Magnitude")
+    plt.ylim([0,2000])
+    plt.title("Fourier Transform Plot")
+    return plt
 
 
 #use glob to read audio file
@@ -50,8 +61,15 @@ if __name__ == "__main__":
     # sr = 1024
     base=base_plot(x,sr,"Noise base plot")    # Step 1
     stft_plot = stft(x,sr,"Noise STFT plot")          # Step 2
-    base.show()
-    stft_plot.show()
+    fft_plot = FFT(x,sr)
+    fft_plot.show()
+    #base.show()
+    try:
+
+        stft_plot.show()
+    except Exception as e:
+        print(e)
+    
 
     
 
