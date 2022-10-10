@@ -1,5 +1,5 @@
 % Get folder for developement of csv files
-myFolder = "C:\Users\Young\Desktop\Smart_Wearable_IOT\Data_Set_Training\Dog";
+myFolder = "C:\Users\Young\Desktop\Smart_Wearable_IOT\Data_Set_Training\Welcome";
 myFiles = fullfile(myFolder, '*.csv');
 theFiles = dir(myFiles);
 
@@ -35,7 +35,7 @@ for i = 1:length(theFiles)
     Y=[time filteredVoltage];
     
     % Creates wav. file
-    name = 'Dog';
+    name = 'Welcome';
     filename = [name '_' num2str(i + minumin, '%d') '.wav'];
     fprintf("name: %s", filename);
    

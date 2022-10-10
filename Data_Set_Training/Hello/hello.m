@@ -3,6 +3,16 @@ myFolder = "C:\Users\Young\Desktop\Smart_Wearable_IOT\Data_Set_Training\Hello";
 myFiles = fullfile(myFolder, '*.csv');
 theFiles = dir(myFiles);
 
+% Check for highest indexed wav file
+% This is to make sure the write file will not overwrite existing files
+myExistingFiles = fullfile(myFolder, '*.wav');
+theExistingFiles = dir(myExistingFiles);
+minumin = 0;
+if isempty(theExistingFiles) == false 
+    minumin = length(theExistingFiles);
+end
+fprintf("%d", minumin);
+
 for i = 1:length(theFiles)
     baseFileName = theFiles(i).name;
     fullFileName = fullfile(theFiles(i).folder, baseFileName);
@@ -26,11 +36,15 @@ for i = 1:length(theFiles)
     
     % Creates wav. file
     name = 'hello';
-    filename = [name '_' num2str(i, '%d') '.wav'];
+    filename = [name '_' num2str(i + minumin, '%d') '.wav'];
     fprintf("name: %s", filename);
    
     audiowrite(filename,Y,fs)
     sound(Y,fs)
+
+    
 end
 
+% Deletes all csv files that have been converted
+delete *.csv
 
