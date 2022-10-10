@@ -1,4 +1,4 @@
-## How collect and transform data from csv to wav format
+# How collect and transform data from csv to wav format
 
 Each folder has a seperate matlab file that will automatically change all csv files within the folder approprately. 
 
@@ -15,7 +15,7 @@ Exporting data:
 - Turn off comments and headers
 - Leave Labels on
 
-# To use this code, you need the addons on MATLAB: 
+## To use this code, you need the addons on MATLAB: 
 
 DataONEorg/matlab-dataone
 version 1.0.0.0 (64.5 MB) by Christopher Jones
